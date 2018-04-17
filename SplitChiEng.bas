@@ -37,15 +37,15 @@ Dim l: For l = 1 To CharCount
         TargetChar = Mid$(EngPasteRange.Text, l, 1)
         Select Case WorksheetFunction.Unicode(TargetChar)
             'English
-            Case 38, 40 - 41, 44 - 47, 64 - 90, 97 - 122, 224 - 253
+                                Case 38, 40 To 41, 44 To 47, 64 To 90, 97 To 122, 224 To 253
                 EngContent = EngContent & TargetChar
                 CheckDigit = "E"
             'Chinese
-            Case 11904 - 12245, 13312 - 19893, 19968 - 40959
+                                Case 11904 To 12245, 13312 To 19893, 19968 To 40959
                 ChiContent = ChiContent & TargetChar
                 CheckDigit = "C"
             'Numerals and Punctuation
-            Case 32, 48 - 57, 9312 - 9371, 10102 - 10131
+                                Case 32, 48 To 57, 9312 To 9371, 10102 To 10131
                 CheckDigit = "N"
                 Select Case True
                     Case CheckDigit3 Like "??E", CheckDigit3 Like "--N", CheckDigit3 Like "-NN", CheckDigit3 Like "---"
